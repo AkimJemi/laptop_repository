@@ -1,0 +1,3 @@
+127.0.0.1 - - [24/May/2022:00:48:13 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:48:15 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.jsp HTTP/1.1" 200 210
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:48:15 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.do HTTP/1.1" 200 -
