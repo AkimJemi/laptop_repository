@@ -1,0 +1,5 @@
+
+5월 24, 2022 24:54:51.99 NEW SESSION
+5월 24, 2022 24:54:51.99 [9076:11116:0524/005451.097:ERROR:device_event_log_impl.cc(214)] [00:54:51.098] USB: usb_service_win.cc:415 Could not read device interface GUIDs: 지정된 파일을 찾을 수 없습니다. (0x2)
+5월 24, 2022 24:54:51.99 [9076:11116:0524/005451.099:ERROR:device_event_log_impl.cc(214)] [00:54:51.099] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)
+5월 24, 2022 24:54:51.100 [9076:11116:0524/005451.099:ERROR:device_event_log_impl.cc(214)] [00:54:51.099] USB: usb_device_handle_win.cc:1049 Failed to read descriptor from node connection: 시스템에 부착된 장치가 작동하지 않습니다. (0x1F)

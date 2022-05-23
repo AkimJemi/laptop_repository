@@ -1,3 +1,8 @@
 127.0.0.1 - - [24/May/2022:00:48:13 +0900] "GET / HTTP/1.1" 404 807
 0:0:0:0:0:0:0:1 - - [24/May/2022:00:48:15 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.jsp HTTP/1.1" 200 210
 0:0:0:0:0:0:0:1 - - [24/May/2022:00:48:15 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.do HTTP/1.1" 200 -
+127.0.0.1 - - [24/May/2022:00:54:48 +0900] "GET / HTTP/1.1" 404 807
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:54:48 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/WEB-INF/classes/main/command/MainHandler.java HTTP/1.1" 404 808
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:54:49 +0900] "GET /favicon.ico HTTP/1.1" 404 911
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:54:53 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.jsp HTTP/1.1" 200 208
+0:0:0:0:0:0:0:1 - - [24/May/2022:00:54:53 +0900] "GET /Akim_Laptop_Eclipse_DynamicWP_Project_A/main.do HTTP/1.1" 200 -
