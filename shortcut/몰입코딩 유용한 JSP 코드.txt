@@ -1,0 +1,4 @@
+몰입코딩 JSP커뮤니티
+String requestUri = req.getRequestURI();
+String[] requestUriBits = requestUri.split("/");
+
