@@ -9,7 +9,7 @@ Chrome 종료	Alt + f를 누른 다음 x
 
 새 탭에서 방문 기록 페이지 열기	Ctrl + h
 새 탭에서 다운로드 페이지 열기	Ctrl + j
-
+Ctrl + l + enter
 --------------------------------
 새 창 열기	Ctrl + n
 시크릿 모드로 새 창 열기	Ctrl + Shift + n
