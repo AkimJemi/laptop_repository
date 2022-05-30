@@ -39,7 +39,7 @@ Chrome 툴바의 가장 오른쪽에 있는 항목에 포커스 설정	F10
 찾기 창을 열고 현재 페이지 내 검색	Ctrl + f 또는 F3
 찾기 창 검색과 일치하는 다음 항목으로 이동	Ctrl + g
 찾기 창 검색과 일치하는 이전 항목으로 이동	Ctrl + Shift + g
-개발자 도구 열기	Ctrl + Shift + j 또는 F12
+개발자 도구 열기	Ctrl + Shift + j 또는 F12     
 인터넷 사용 기록 삭제 옵션 열기	Ctrl + Shift + Delete
 새 탭에서 Chrome 고객센터 열기	F1
 다른 사용자로 로그인 또는 게스트로 탐색	Ctrl + Shift + m
