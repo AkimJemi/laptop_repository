@@ -17,10 +17,12 @@ Canonical URL - y
 - 
 +
 '''
-
+// e edit
+edit : <kbd>e</kbd>
+commit changes <kbd>Ctrl</kbd> + <kbd>s</kbd> 
 
 
 https://docs.github.com/ja/get-started/using-github/keyboard-shortcuts
 
-C g -> C enter -> C P	m
+<kbd>Ctrl</kbd>+<kbd>g</kbd> -> <kbd>Ctrl</kbd>+<kbd>enter</kbd> -> <kbd>Ctrl</kbd>+<kbd>p</kbd>
 
