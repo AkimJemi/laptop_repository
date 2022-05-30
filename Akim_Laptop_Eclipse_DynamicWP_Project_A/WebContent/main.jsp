@@ -7,9 +7,8 @@
 <title>Insert Ktitle here</title>
 </head>
 <body>
-ddd
 	<script type="text/javascript">
 		location.href = 'main.do';
 	</script>
 </body>
-</html>
+</html>			
