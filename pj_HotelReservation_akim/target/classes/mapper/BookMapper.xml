@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinnotech.hotel.mapper.BookMapper">
+	<resultMap type="com.sinnotech.hotel.dto.BookingsDTO"
+		id="bookingsDTO" autoMapping="true">
+		<id property="id" column="id" />
+		<result property="userId" column="user_id" />
+		<result property="userName" column="name" />
+		<result property="roomId" column="room_id" />
+		<result property="roomName" column="room_name" />
+		<result property="price" column="price" />
+		<result property="payFlag" column="pay_flag" />
+		<result property="cancelFlag" column="cancel_flag" />
+		<result property="adultCnt" column="adult_cnt" />
+		<result property="childrenCnt" column="children_cnt" />
+		<result property="startDate" column="start_dt" />
+		<result property="endDate" column="end_dt" />
+		<result property="options" column="options" />
+		<result property="deleteFlag" column="delete_flag" />
+		<result property="createdAt" column="created_at" />
+		<result property="updatedAt" column="updated_at" />
+	</resultMap>
+
+	<sql id="bookingSearch">
+		<if test="paging.content != null and paging.content !=''">
+			<choose>
+				<when test="paging.title =='no'">
+					AND b.id = #{paging.contentForId}
+				</when>
+				<otherwise>
+					<choose>
+						<when test="paging.contentsIDList !=null">
+							<if test="paging.title =='user'">
+								AND b.user_id IN
+							</if>
+							<if test="paging.title =='room'">
+								AND b.room_id IN
+							</if>
+							<foreach collection="paging.contentsIDList" item="Id"
+								open="(" close=")" separator=",">
+								#{Id}
+							</foreach>
+						</when>
+						<otherwise>
+							AND 1=-1
+						</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	
+	<select id="getAllBookList" resultMap="bookingsDTO">
+		SELECT *
+		FROM bookings b
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON b.room_id
+		= r.id
+		WHERE b.delete_flag = #{paging.deleteFlag}
+		ORDER BY b.id
+		LIMIT 20
+		OFFSET 20*(#{paging.currentPage}-1)
+	</select>
+
+	<select id="searchBookList" resultMap="bookingsDTO">
+		SELECT *
+		FROM bookings b
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		WHERE 1=1
+		<include refid="bookingSearch"/>
+		<if test="paging.startDate != null and paging.startDate !=''">
+			AND CAST(b.start_dt AS INTEGER) &gt;= CAST(#{paging.startDate} AS INTEGER)
+		</if>
+		<if test="paging.endDate != null and paging.endDate !=''">
+			AND CAST(b.end_dt AS INTEGER) &lt;= CAST(#{paging.endDate} AS INTEGER)
+		</if>
+		AND b.delete_flag = #{paging.deleteFlag}
+		ORDER BY b.id
+		LIMIT 20
+		OFFSET 20*(#{paging.currentPage} -1)
+		<!-- AND delete_flag = false -->
+	</select>
+	<select id="getBookInfo" resultMap="bookingsDTO">
+		SELECT *
+		FROM
+		bookings b
+		INNER
+		JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON
+		b.room_id = r.id
+		WHERE b.id
+		= #{id}
+	</select>
+	<update id="updateBookInfo">
+		UPDATE
+		bookings
+		SET
+		updated_at = NOW()
+		<if test="book.adultCnt != null">
+			,adult_cnt =#{book.adultCnt}
+		</if>
+		<if test="book.childrenCnt != null">
+			,children_cnt =#{book.childrenCnt}
+		</if>
+		<if test="book.startDate != null">
+			,start_dt =#{book.startDate}
+		</if>
+		<if test="book.endDate != null">
+			,end_dt =#{book.endDate}
+		</if>
+		<if test="book.price != null">
+			,price =#{book.price}
+		</if>
+		<if test="book.options != null">
+			,options =#{book.options}
+		</if>
+		<if test="book.payFlag != null">
+			,pay_flag =#{book.payFlag}
+		</if>
+		<if test="book.cancelFlag != null">
+			,cancel_flag =#{book.cancelFlag}
+		</if>
+		<if test="book.deleteFlag != null">
+			,delete_flag =#{book.deleteFlag}
+		</if>
+		WHERE
+		id = #{book.id}
+	</update>
+	<update id="cancelBookInfo">
+		UPDATE
+		bookings
+		SET
+		cancel_flag = true
+		WHERE
+		id =
+		#{bookID}
+	</update>
+	<select id="checkIfBookingCancelled" resultMap="bookingsDTO">
+		SELECT *
+		FROM
+		bookings
+		WHERE id = #{bookID}
+		AND cancel_flag = true
+	</select>
+	<select id="getAllBookingCount" resultType="int">
+		SELECT COUNT(*)
+		FROM
+		bookings
+	</select>
+	<select id="getSearchedBookingCount" resultType="int">
+		SELECT COUNT(*)
+		FROM bookings b
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		WHERE 1=1
+		<include refid="bookingSearch"/>
+		<if test="paging.startDate != null and paging.startDate !=''">
+			AND CAST(b.start_dt AS INTEGER) &gt;= CAST(#{paging.startDate} AS INTEGER)
+		</if>
+		<if test="paging.endDate != null and paging.endDate !=''">
+			AND CAST(b.end_dt AS INTEGER) &lt;= CAST(#{paging.endDate} AS INTEGER)
+		</if>
+		AND b.delete_flag = #{paging.deleteFlag}
+	</select>
+	<select id="adminHomeBookInfo" resultMap="bookingsDTO">
+		SELECT *
+		FROM bookings b
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		WHERE 1=1
+		<include refid="bookingSearch"/>
+		AND CAST(b.start_dt AS INTEGER) &gt;= CAST(#{paging.startDate} AS INTEGER)
+		ORDER BY b.id
+		LIMIT 20
+		OFFSET 20*(#{paging.currentPage} -1)
+	</select>
+	<select id="adminHomeBookInfoCount" resultType="int">
+		SELECT COUNT(*)
+		FROM bookings b
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		WHERE 1=1
+		<include refid="bookingSearch"/>
+		AND CAST(b.start_dt AS INTEGER) &gt;= CAST(#{paging.startDate} AS INTEGER)
+	</select>
+	<select id="searchBookDateByRoomID" resultMap="bookingsDTO">
+		SELECT b.id, b.start_dt, b.end_dt, b.delete_flag, b.pay_flag, b.cancel_flag, r.room_name, u.name
+		FROM bookings b
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		INNER JOIN
+		users u
+		ON b.user_id = u.id
+		WHERE 1 = 1
+		AND b.room_id = #{roomID}
+	</select>
+	<select id="searchAvaliableBookDateByRoomID" resultMap="bookingsDTO">
+		SELECT b.start_dt, b.end_dt
+		FROM bookings b
+		INNER JOIN
+		room_info r
+		ON b.room_id = r.id
+		WHERE r.id = #{roomID}
+		AND b.delete_flag = false
+		AND b.cancel_flag = false
+	</select>
+</mapper>

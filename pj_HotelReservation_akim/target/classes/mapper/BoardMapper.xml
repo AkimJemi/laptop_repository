@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinnotech.hotel.mapper.BoardMapper">
+	<resultMap type="com.sinnotech.hotel.dto.BoardDTO" id="boardDTO"
+		autoMapping="true">
+		<id property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="content" column="content" />
+	</resultMap>
+	
+	<select id="getBoardList" resultMap="boardDTO">
+		SELECT *
+		FROM boards
+	</select>
+</mapper>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinnotech.hotel.mapper.RoomMapper">
+	<resultMap type="com.sinnotech.hotel.dto.RoomInfoDTO"
+		id="roomInfo">
+		<id property="id" column="id" />
+		<result property="roomName" column="room_name" />
+		<result property="maxCount" column="max_count" />
+		<result property="info" column="info" />
+		<result property="options" column="options" />
+		<result property="price" column="price" />
+		<result property="images" column="images" />
+		<result property="deleteFlag" column="delete_flag" />
+		<result property="createdAt" column="created_at" />
+		<result property="updatedAt" column="updated_at" />
+	</resultMap>
+	<sql id="roomSearch">
+		<if test="paging.content != null and paging.content !=''">
+			<choose>
+				<when test="paging.title =='no'">
+					AND r.id = #{paging.contentForId}
+				</when>
+				<otherwise>
+					<choose>
+						<when test="paging.contentsIDList !=null">
+							<if test="paging.title =='room'">
+								AND r.id IN
+							</if>
+							<foreach collection="paging.contentsIDList" item="Id"
+								open="(" close=")" separator=",">
+								#{Id}
+							</foreach>
+						</when>
+						<otherwise>
+							AND 1=-1
+						</otherwise>
+					</choose>
+				</otherwise>
+			</choose>
+		</if>
+	</sql>
+	<select id="searchAllRoomInfoList" resultMap="roomInfo">
+		SELECT *
+		FROM room_info r
+		WHERE r.delete_flag = false
+		ORDER BY r.id
+		LIMIT 20 OFFSET 20*(#{paging.currentPage} -1)
+	</select>
+	<select id="searchAllRoomInfoCount" resultType="int">
+		SELECT COUNT(*)
+		FROM room_info r
+		WHERE r.delete_flag = false
+	</select>
+	<select id="searchedRoomInfoList" resultMap="roomInfo">
+		SELECT *
+		FROM room_info r
+		WHERE r.delete_flag = #{paging.deleteFlag}
+		<include refid="roomSearch"></include>
+		ORDER BY r.id
+		LIMIT 20 OFFSET 20*(#{paging.currentPage} -1)
+	</select>
+	<select id="searchedRoomCount" resultType="int">
+		SELECT COUNT(*)
+		FROM room_info r
+		WHERE r.delete_flag = #{paging.deleteFlag}
+		<include refid="roomSearch"></include>
+	</select>
+	<select id="searchRoomInfoDetailByRoomID" resultMap="roomInfo">
+		SELECT *
+		FROM room_info
+		WHERE
+		id = ${roomID}
+	</select>
+	<select id="getRoomIDByBookContent"  resultType="int">
+		SELECT id
+		FROM room_info
+		WHERE room_name LIKE '%${content}%'
+	</select>
+</mapper>

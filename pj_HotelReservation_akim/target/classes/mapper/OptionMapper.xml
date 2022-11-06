@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sinnotech.hotel.mapper.OptionMapper">
+	<resultMap type="com.sinnotech.hotel.dto.OptionsDTO" id="Options">
+		<id property="id" column="id" />
+		<result property="roomCode" column="room_cd" />
+		<result property="bookingCode" column="booking_cd" />
+		<result property="info" column="info" />
+		<result property="price" column="price" />
+		<result property="deleteFlag" column="delete_flag" />
+		<result property="createdAt" column="created_at" />
+		<result property="updatedAt" column="updated_at" />
+	</resultMap>
+	<select id="getBookingOptions" resultMap="Options">
+		SELECT DISTINCT booking_cd, info
+		FROM
+		options
+		WHERE delete_flag = false
+		ORDER BY booking_cd
+	</select>
+	<select id="getBookingOptionNameByRoomID" resultMap="Options">
+		SELECT DISTINCT info, booking_cd, price
+		FROM
+		options
+		WHERE booking_cd in
+		<foreach collection="optionNoList" item="optionNoList" open="(" close=")" separator="," >
+		#{optionNoList}
+		</foreach>
+		AND 
+		delete_flag = false
+		ORDER BY booking_cd
+	</select>
+	<update id="OptionMapper">
+		UPDATE options
+		SET
+		option
+		WHERE booking_cd in
+		<foreach collection="optionNoList" item="optionNoList" open="(" close=")" separator="," >
+		#{optionNoList}
+		</foreach>
+		AND delete_flag = false
+		ORDER BY booking_cd
+	</update>
+</mapper>
