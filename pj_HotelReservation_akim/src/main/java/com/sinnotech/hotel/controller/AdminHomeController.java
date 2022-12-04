@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sinnotech.hotel.dto.BookInfo;
-import com.sinnotech.hotel.dto.Paging;
-import com.sinnotech.hotel.service.BookService;
-import com.sinnotech.hotel.util.PathCollection;
-import com.sinnotech.hotel.util.Util;
+import hotel.dto.BookInfo;
+import hotel.dto.Paging;
+import hotel.service.BookService;
+import hotel.util.PathCollection;
+import hotel.util.Util;
 
 @Controller
 @RequestMapping("admin")

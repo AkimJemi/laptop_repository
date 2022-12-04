@@ -1,10 +1,7 @@
 package com.sinnotech.hotel.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tomcat.util.buf.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,16 +9,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.sinnotech.hotel.dto.BookingsDTO;
-import com.sinnotech.hotel.dto.Paging;
-import com.sinnotech.hotel.dto.RoomDTO;
-import com.sinnotech.hotel.helper.BookHelper;
-import com.sinnotech.hotel.service.BookService;
-import com.sinnotech.hotel.service.RoomService;
-import com.sinnotech.hotel.util.JsonMessage;
-import com.sinnotech.hotel.util.Message;
-import com.sinnotech.hotel.util.PathCollection;
-import com.sinnotech.hotel.util.Util;
+import hotel.dto.BookingsDTO;
+import hotel.dto.Paging;
+import hotel.dto.RoomDTO;
+import hotel.helper.BookHelper;
+import hotel.service.BookService;
+import hotel.service.RoomService;
+import hotel.util.JsonMessage;
+import hotel.util.Message;
+import hotel.util.PathCollection;
+import hotel.util.Util;
 
 @Controller
 @RequestMapping("admin/calendar")
@@ -58,9 +55,8 @@ public class AdminCalendarController extends BaseController implements PathColle
 	@ResponseBody
 	public JsonMessage calendarSelect(BookingsDTO bookInfo, Model model) {
 		String id = Integer.toString(bookInfo.getId());
-		List<BookingsDTO> theDatesOfTheRoom = bookService.searchAvaliableBookDateByRoomID(Integer.parseInt(id));
-		boolean result = (new BookHelper()).filterIsAvaliableBookDate(theDatesOfTheRoom, bookInfo);
-		System.out.println(result);
+		boolean result = (new BookHelper())
+				.filterIsAvaliableBookDate(bookService.searchAvaliableBookDateByRoomID(Integer.parseInt(id)), bookInfo);
 		return result ? new JsonMessage(id, null, true, Message.AVAILABLE_DATE)
 				: new JsonMessage(id, null, false, Message.UNAVAILABLE_DATE);
 	}

@@ -3,7 +3,6 @@ package com.sinnotech.hotel.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,17 +14,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.sinnotech.hotel.dto.BookInfo;
-import com.sinnotech.hotel.dto.BookingsDTO;
-import com.sinnotech.hotel.dto.OptionsDTO;
-import com.sinnotech.hotel.dto.Paging;
-import com.sinnotech.hotel.helper.OptionHelper;
-import com.sinnotech.hotel.service.BookService;
-import com.sinnotech.hotel.service.OptionsService;
-import com.sinnotech.hotel.util.Constants;
-import com.sinnotech.hotel.util.Message;
-import com.sinnotech.hotel.util.PathCollection;
-import com.sinnotech.hotel.util.Util;
+import hotel.dto.BookInfo;
+import hotel.dto.BookingsDTO;
+import hotel.dto.OptionListInfo;
+import hotel.dto.OptionsDTO;
+import hotel.dto.Paging;
+import hotel.helper.OptionHelper;
+import hotel.service.BookService;
+import hotel.service.OptionsService;
+import hotel.util.Constants;
+import hotel.util.Message;
+import hotel.util.PathCollection;
+import hotel.util.Util;
 
 @Controller
 @RequestMapping("admin/book/")
@@ -57,7 +57,6 @@ public class AdminBookManagementController extends BaseController implements Pat
 			previousContent = page.getContent();
 			bookInput = bookService.searchBookList(page);
 		}
-
 		model.addAttribute(SELECTEDOPTION, options.getBookingCode());
 		model.addAttribute(OPTIONS, bookInput.getOptions());
 		model.addAttribute(PAGING, bookInput.getPaging());
@@ -71,6 +70,8 @@ public class AdminBookManagementController extends BaseController implements Pat
 	public String detail(Model model, @PathVariable("room") Integer roomID) {
 		logger.info("detail() - START");
 		BookingsDTO bookings = bookService.searchBookInfoByBookID(roomID);
+		model.addAttribute(READONLY, Constants.READONLY);
+		model.addAttribute(DISABLED, Constants.DISABLED);
 		model.addAttribute(BOOK, bookings);
 		model.addAttribute(SELECTEDOPTION, optionsService.getBookingOptionNameByRoomID(bookings.getOptions()));
 		logger.info("detail() - END");
@@ -88,9 +89,10 @@ public class AdminBookManagementController extends BaseController implements Pat
 		model.addAttribute(OPTIONS, options);
 		BookInfo bookInfo = (new OptionHelper()).selectedOptionHelper(options, selectedOptions);
 		if (bookInfo != null) {
-			for (int i = 0; i < bookInfo.getOptionInfo().size(); i++) {
-				List<OptionsDTO> setOption = bookInfo.getOptionInfo().get(i).getOptionListInfo();
-				model.addAttribute(OPTIONS + i, setOption);
+			int i = 0;
+			for (OptionListInfo option : bookInfo.getOptionInfo()) {
+				model.addAttribute(OPTIONS + i++, option.getOptionListInfo());
+
 			}
 		}
 		logger.info("getUpdate() - END");
@@ -101,6 +103,8 @@ public class AdminBookManagementController extends BaseController implements Pat
 	public String postUpdate(@PathVariable("bookID") Integer id, BookingsDTO bookingsDTO, Model model) {
 		logger.info("postUpdate() - START");
 		bookingsDTO = bookService.updateBookInfo(bookingsDTO);
+		model.addAttribute(DISABLED, Constants.DISABLED);
+		model.addAttribute(READONLY, Constants.READONLY);
 		model.addAttribute(BOOK, bookingsDTO);
 		model.addAttribute(SELECTEDOPTION, optionsService.getBookingOptionNameByRoomID(bookingsDTO.getOptions()));
 		logger.info("postUpdate() - END");
@@ -108,13 +112,11 @@ public class AdminBookManagementController extends BaseController implements Pat
 	}
 
 	@RequestMapping(value = "delete/{bookID}", method = RequestMethod.GET)
-	public String cancel(Model model, @PathVariable("bookID") Integer bookID, HttpSession session,
-			HttpServletRequest rd, RedirectAttributes rq) {
+	public String cancel(Model model, @PathVariable("bookID") Integer bookID, RedirectAttributes rq) {
 		logger.info("cancel() - START");
 		boolean result = bookService.cancelBookInfoByBookID(bookID);
 		rq.addFlashAttribute(MESSAGE, result == true ? Message.CANCEL_SUCCEED : Message.CANCEL_SUCCEED);
 		logger.info("cancel() - END");
-		return result == true ? REDRIRECT + Util.GET_RETURN_KIND /* + session.getAttribute("url").toString() */
-				: REDRIRECT + Util.GET_RETURN_KIND + bookID;
+		return result == true ? REDRIRECT + Util.GET_RETURN_KIND : REDRIRECT + Util.GET_RETURN_KIND + bookID;
 	}
 }

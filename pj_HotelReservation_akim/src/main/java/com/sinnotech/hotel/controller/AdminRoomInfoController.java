@@ -71,13 +71,8 @@ public class AdminRoomInfoController extends BaseController{
 		ModelAndView model = new ModelAndView("redirect:/admin/room/roominfolist");
 		model.addObject("roomInfoDetail", adminRoomInfoDTO);
 		
-		//깃 디렉토리를 정확히 알 수 없어서 이렇게 썼습니다.
 		try {
-			adminRoomInfoDTO.getUpload_file().transferTo(new File("https://github.com/sinnotech-jp/pj_HotelReservation.git" + adminRoomInfoDTO.getImages()));
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
+			adminRoomInfoDTO.getUpload_file().transferTo(new File("\\resources\\images\\" + adminRoomInfoDTO.getImages()));
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

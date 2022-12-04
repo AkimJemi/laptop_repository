@@ -6,8 +6,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Admin Home</title>
-		
 		<link rel="stylesheet" href="${contextpath}/resources/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css" />
 		<link rel="stylesheet" href="${contextpath}/resources/css/common.css" />
 		

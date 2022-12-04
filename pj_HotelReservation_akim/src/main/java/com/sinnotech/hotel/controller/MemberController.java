@@ -1,9 +1,9 @@
 package com.sinnotech.hotel.controller;
 
-import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import com.sinnotech.hotel.dao.MemberDAO;
-import com.sinnotech.hotel.dto.UsersDTO;
-import com.sinnotech.hotel.service.MemberService;
+
+import dto.UsersDTO;
+import service.MemberService;
 
 @Controller
 public class MemberController extends BaseController{

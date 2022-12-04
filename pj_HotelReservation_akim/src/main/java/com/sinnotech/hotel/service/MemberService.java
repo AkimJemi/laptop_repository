@@ -1,7 +1,8 @@
 package com.sinnotech.hotel.service;
 
 import java.util.List;
-import com.sinnotech.hotel.dto.UsersDTO;
+
+import dto.UsersDTO;
 
 public interface MemberService {
 

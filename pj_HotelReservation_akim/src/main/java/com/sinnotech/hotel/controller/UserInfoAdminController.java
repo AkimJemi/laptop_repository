@@ -66,8 +66,10 @@ public class UserInfoAdminController extends BaseController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search(Model model, SetPaging page, HttpServletRequest rq) {
 		logger.info("UserInfoAdminController.search() - START");
-		String searchType = "", searchKeyword = "", currentPage = "";
-		if (rq.getParameter("searchType") != null) {
+		String searchType=rq.getParameter("searchType");
+		String currentPage;
+		String searchKeyword=rq.getParameter("searchkeyword");
+		if (rq.getParameterValues("searchType") != null) {
 			searchType = rq.getParameter("searchType");
 			page.setSearchType(searchType);
 		}
@@ -109,10 +111,10 @@ public class UserInfoAdminController extends BaseController {
 			String newPassword = UUID.randomUUID().toString().substring(0, 5);
 			boolean result = userInfoAdminService.updateUserPassword(newPassword, id);
 			if (result) {
-				msgHelper.setSubject("pj_hotelReservation 임시비밀번호"); // 이메일의 제목
+				msgHelper.setSubject(""); // 이메일의 제목
 				msgHelper.setText("임시비밀번호는 " + newPassword + "입니다."); // 이메일의 내용
 				msgHelper.setTo(email);
-				msgHelper.setFrom("wowp100@naver.com");
+				msgHelper.setFrom("");
 				mailSender.send(message);// 메일을 송부
 				logger.info("UserInfoAdminController.passwordReset() - END");
 				return "Success";
@@ -140,11 +142,11 @@ public class UserInfoAdminController extends BaseController {
 		if (result) {
 			redirect.addFlashAttribute("message", Message.DELETE_SUCCEED);
 		} else {
-			redirect.addFlashAttribute("message", Message.DELETE_SUCCEED);
+			redirect.addFlashAttribute("message", Message.DELETE_FALL);
 		}
 		logger.info("UserInfoAdminController.delete() - END");
 		return "redirect:/admin/userInfo/search?searchType=" + searchType + "&searchKeyword=" + searchKeyword
-				+ "&currentPage=" + currentPage;
+				+ "&currentPage=" + currentPage+"&type=delete";
 	}
 
 }

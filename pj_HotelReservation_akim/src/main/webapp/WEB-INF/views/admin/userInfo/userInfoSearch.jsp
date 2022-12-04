@@ -6,10 +6,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="/resources/js/adminUserInfo.js"></script>
 <script type="text/javascript">
-const message = '${requestScope.message}';
-if (message) {
-	alert(message);
-}
+showMessage('${requestScope.message}');
 </script>
 <title>회원정보 검색</title>
 <%
@@ -36,13 +33,19 @@ String name = "", phone = "", email = "";
 						<tbody>
 							<c:if test="${page != null}">
 								<c:if test="${page.searchType eq 'name'}">
-									<%name = "selected";%>
+									<%
+									name = "selected";
+									%>
 								</c:if>
 								<c:if test="${page.searchType eq 'phone'}">
-									<%phone = "selected";%>
+									<%
+									phone = "selected";
+									%>
 								</c:if>
 								<c:if test="${page.searchType eq 'email'}">
-									<%email = "selected";%>
+									<%
+									email = "selected";
+									%>
 								</c:if>
 							</c:if>
 							<c:forEach var="userInfo" items="${userInfoList }">
@@ -96,7 +99,6 @@ String name = "", phone = "", email = "";
 						<button type="button" class="btn btn-secondary w-10 p-1"
 							onclick="paging(${page.total})">▷▷</button>
 					</c:if>
-
 				</div>
 			</div>
 		</div>

@@ -3,11 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet" href="${contextpath}/resources/css/adminBook.css" />
 <script src="/resources/js/adminBook.js"></script>
-<title>${room }번방예약관리상세정보</title>
+<title>${room}번방 예약관리상세정보</title>
 <%
-String form = "readonly", disabled = "disabled", trueFlag = "", falseFlag = "", selected = "";
-String deleteFlag = "";
-int i = 0;
+String form = "readonly", disabled = "disabled", trueFlag = "", falseFlag = "", selected = "", deleteFlag = "";
 %>
 <c:if test="${form eq 'update' }">
 <%
