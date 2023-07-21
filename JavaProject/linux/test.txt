@@ -1,0 +1,42 @@
+Already up to date.
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   bin/mainPackage/HomePage$3.class
+	modified:   bin/mainPackage/MainPage$3.class
+	modified:   bin/mainPackage/MainPage$4.class
+	modified:   bin/mainPackage/Music.class
+	modified:   linux/save.txt
+	modified:   linux/test.txt
+	modified:   src/mainPackage/HomePage.java
+	modified:   src/mainPackage/MainPage.java
+	modified:   src/mainPackage/Music.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	bin/JavaWithLinux/
+	src/JavaWithLinux/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[main 6a71b9b] 20230717
+ 26 files changed, 364 insertions(+), 29 deletions(-)
+ create mode 100644 JavaProject/bin/JavaWithLinux/JFrameAndLinux.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/JFrameHome$1.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/JFrameHome.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/JFrameTest.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxCommandList.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxHomePage$1.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxHomePage$2.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxHomePage$3.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxHomePage$4.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxHomePage.class
+ create mode 100644 JavaProject/bin/JavaWithLinux/LinuxMain.class
+ create mode 100644 JavaProject/src/JavaWithLinux/JFrameAndLinux.java
+ create mode 100644 JavaProject/src/JavaWithLinux/JFrameHome.java
+ create mode 100644 JavaProject/src/JavaWithLinux/JFrameTest.java
+ create mode 100644 JavaProject/src/JavaWithLinux/LinuxCommandList.java
+ create mode 100644 JavaProject/src/JavaWithLinux/LinuxHomePage.java
+ create mode 100644 JavaProject/src/JavaWithLinux/LinuxMain.java
