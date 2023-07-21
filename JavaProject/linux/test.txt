@@ -1,0 +1,15 @@
+PARAM=$1
+echo `$PARAM` > save.txt
+#echo 1
+#echo 5 > save2.txt
+#echo 6 >> save4.txt
+#echo 9 >> save5.txt
+#echo 1 >> save3.txt
+#echo 2 >> save3.txt
+#echo 3 >> save3.txt
+#echo 4 >> save3.txt
+#echo 6 >> save3.txt
+#echo 8 >> save3.txt
+#
+#
+#cat save3.txt | head -4 > save4.txt
