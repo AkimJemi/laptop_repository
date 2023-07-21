@@ -69,7 +69,7 @@ public class MainPage extends NewJFrame{
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				new Music(Main.MOUSE_ENTERED_SOUND, true);
+				new Music(Main.MOUSE_ENTERED_SOUND, true).run();
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -83,7 +83,7 @@ public class MainPage extends NewJFrame{
 		startButton.addMouseListener(new NewMouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				new Music(Main.MOUSE_ENTERED_SOUND, true);
+				new Music(Main.MOUSE_ENTERED_SOUND, true).run();
 				startButton.setIcon(startButtonExittedImageIcon);
 			}
 			@Override

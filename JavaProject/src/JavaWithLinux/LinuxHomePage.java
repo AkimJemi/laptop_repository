@@ -1,4 +1,4 @@
-package mainPackage;
+package JavaWithLinux;
 
 import java.awt.Color;
 import java.awt.Cursor;
@@ -12,37 +12,59 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class HomePage extends JFrame{
+import mainPackage.Main;
+import mainPackage.MainPage;
+import mainPackage.Music;
 
-	private Image screenImage;
-	private Graphics screenGraphics;
-	private Image background = new ImageIcon("img/introBackground.jpg").getImage()
-			.getScaledInstance(Main.SCREEN_HOME_WIDTH, Main.SCREEN_HOME_HEIGHT, Image.SCALE_SMOOTH);
+public class LinuxHomePage extends JFrame {
+	public static final int SCREEN_HOME_WIDTH = 1000;
+	public static final int SCREEN_HOME_HEIGHT = 600;
+
+	public static final int SCREEN_MAIN_WIDTH = 1280;
+	public static final int SCREEN_MAIN_HEIGHT = 720;
+	public static final int MENUBAR_HEIGHT = 30;
+	public static final int EXIT_BUTTON = 30;
+
+	public static final int START_BUTTON_HEIGHT = 80;
+	public static final int START_BUTTON_WIDTH = 150;
+
 	private JLabel menuBar = new JLabel(new ImageIcon("img/menuBar.png"));
 	private JButton button = new JButton(new ImageIcon(new ImageIcon("img/exitButton.png").getImage()
-			.getScaledInstance(Main.EXIT_BUTTON, Main.EXIT_BUTTON, Image.SCALE_SMOOTH)));
+			.getScaledInstance(EXIT_BUTTON, EXIT_BUTTON, Image.SCALE_SMOOTH)));
 	private ImageIcon startButtonEnteredImageIcon = new ImageIcon(new ImageIcon("img/startButtonEntered.png").getImage()
-			.getScaledInstance(Main.START_BUTTON_WIDTH, Main.START_BUTTON_HEIGHT, Image.SCALE_SMOOTH));
+			.getScaledInstance(START_BUTTON_WIDTH, START_BUTTON_HEIGHT, Image.SCALE_SMOOTH));
 	private ImageIcon startButtonExittedImageIcon = new ImageIcon(new ImageIcon("img/startButtonExitted.png").getImage()
-			.getScaledInstance(Main.START_BUTTON_WIDTH, Main.START_BUTTON_HEIGHT, Image.SCALE_SMOOTH));
+			.getScaledInstance(START_BUTTON_WIDTH, START_BUTTON_HEIGHT, Image.SCALE_SMOOTH));
 	private JButton startButton = new JButton(startButtonEnteredImageIcon);
 
 	private int mouseX, mouseY;
-	
-	private Music introMusic = new Music("introMusic.mp3", true);
 
-	public HomePage() {
+	public LinuxHomePage() {
 		setUndecorated(true);
 		setTitle("MainPage");
-		setSize(Main.SCREEN_HOME_WIDTH, Main.SCREEN_HOME_HEIGHT + Main.MENUBAR_HEIGHT);
+		setSize(SCREEN_HOME_WIDTH, SCREEN_HOME_HEIGHT + MENUBAR_HEIGHT);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
-		setBackground(new Color(0, 0, 0, 0));
+//		setBackground(new Color(0, 0, 0, 0));
 		setLayout(null);
-		menuBar.setBounds(0, 0, Main.SCREEN_HOME_WIDTH, Main.MENUBAR_HEIGHT);
+		setMenuBar();
+		
+		JTextField textFile = new JTextField();
+		textFile.setBounds(300,300,120,30);
+		textFile.setVisible(true);
+		add(textFile);
+		
+		
+		
+
+	}
+
+	private void setMenuBar() {
+		menuBar.setBounds(0, 0, SCREEN_HOME_WIDTH, MENUBAR_HEIGHT);
 		menuBar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
@@ -63,53 +85,44 @@ public class HomePage extends JFrame{
 				setLocation(x - mouseX, y - mouseY);
 			}
 		});
-		button.setBounds(Main.SCREEN_HOME_WIDTH - 30, 0, 30, 30);
+		button.setBounds(SCREEN_HOME_WIDTH - 30, 0, 30, 30);
 		buttonSetting(button);
-		
+
 		button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				new Music(Main.MOUSE_ENTERED_SOUND, true).run();
 			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
-				new Music(Main.MOUSE_PRESSED_SOUND, true).run();
 				System.exit(0);
 			}
 		});
 		button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		startButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		startButton.setBounds( (int)Math.round((Main.SCREEN_HOME_WIDTH/2)-Main.START_BUTTON_WIDTH/2) , (int)Math.round(Main.SCREEN_HOME_HEIGHT/1.2), Main.START_BUTTON_WIDTH, Main.START_BUTTON_HEIGHT);
+		startButton.setBounds((int) Math.round((SCREEN_HOME_WIDTH / 2) - START_BUTTON_WIDTH / 2),
+				(int) Math.round(SCREEN_HOME_HEIGHT / 1.2), START_BUTTON_WIDTH, START_BUTTON_HEIGHT);
 		buttonSetting(startButton);
 		startButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseEntered(MouseEvent e) {
-				new Music(Main.MOUSE_ENTERED_SOUND, true).run();
 				startButton.setIcon(startButtonExittedImageIcon);
 			}
+
 			@Override
 			public void mouseExited(MouseEvent e) {
 				startButton.setIcon(startButtonEnteredImageIcon);
 			}
+
 			@Override
 			public void mousePressed(MouseEvent e) {
-				new Music(Main.MOUSE_PRESSED_SOUND, true).run();
-				try {
-					setVisible(false);
-					Thread.sleep(1000);
-					introMusic.stop();
-					new MainPage();
-				} catch (InterruptedException e1) {
-				}
-				
+
 			}
 		});
-		
+
 		add(button);
 		add(startButton);
 		add(menuBar);
-
-		introMusic.start();
 
 	}
 
@@ -119,19 +132,17 @@ public class HomePage extends JFrame{
 		button.setFocusPainted(false);
 	}
 
-	@Override
-	public void paint(Graphics g) {
-		screenImage = createImage(Main.SCREEN_HOME_WIDTH, Main.SCREEN_HOME_HEIGHT);
-		screenGraphics = screenImage.getGraphics();
-		screenDraw(screenGraphics);
-		g.drawImage(screenImage, 0, 0, null);
-	}
-
-	private void screenDraw(Graphics g) {
-		g.drawImage(background, 0, 0, null);
-		paintComponents(g);
-		this.repaint();
-
-	}
-
+//	@Override
+//	public void paint(Graphics g) {
+//		screenImage = createImage(SCREEN_HOME_WIDTH, SCREEN_HOME_HEIGHT);
+//		screenGraphics = screenImage.getGraphics();
+//		screenDraw(screenGraphics);
+//		g.drawImage(screenImage, 0, 0, null);
+//	}
+//
+//	private void screenDraw(Graphics g) {
+//		g.drawImage(background, 0, 0, null);
+//		paintComponents(g);
+//		this.repaint();
+//	}
 }

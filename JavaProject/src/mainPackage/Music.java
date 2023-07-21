@@ -20,7 +20,6 @@ public class Music extends Thread {
 			fis = new FileInputStream(file);
 			bis = new BufferedInputStream(fis);
 			player = new Player(bis);
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -30,12 +29,10 @@ public class Music extends Thread {
 	@Override
 	public void run() {
 		try {
-			do {
-				player.play();
-				fis = new FileInputStream(file);
-				bis = new BufferedInputStream(bis);
-				player = new Player(bis);
-			} while (isLoop);
+			player.play();
+			fis = new FileInputStream(file);
+			bis = new BufferedInputStream(bis);
+			player = new Player(bis);
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
