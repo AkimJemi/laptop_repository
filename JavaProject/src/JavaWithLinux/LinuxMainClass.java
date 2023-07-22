@@ -1,9 +1,8 @@
 package JavaWithLinux;
 
-public class JFrameTest{
+public class LinuxMainClass{
 
 	public static void main(String[] args) {
-
 		new JFrameHome();
 	}
 }

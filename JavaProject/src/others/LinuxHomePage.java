@@ -1,4 +1,4 @@
-package JavaWithLinux;
+package others;
 
 import java.awt.Color;
 import java.awt.Cursor;

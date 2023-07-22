@@ -1,4 +1,4 @@
-package JavaWithLinux;
+package others;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -7,13 +7,15 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 
-public class LinuxMain extends JFrameAndLinux {
+import JavaWithLinux.LinuxCommandController;
+
+public class LinuxMain extends LinuxCommandController {
 	public static final String path_bash = "C:/Program Files/Git/git-bash.exe";
 
 	// Create a file Output.txt where git-bash prints the results
 	public static final String path_file_output_git_bash = "C:/Users/wowp1/Desktop/laptop_github/laptop_repository/JavaProject/linux/test.txt";
 
-	public static void main(String[] args) {
+	public void main(String[] args) {
 		new LinuxHomePage();
 
 		// Path to your repository
