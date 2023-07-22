@@ -1,0 +1,247 @@
+git pull main
+git pul
+git pull
+git status
+gt add .
+git add .
+git commit -m "20230717"
+git push origin main
+git status
+git add .
+git commit -m '20230717
+'
+git push origin
+cd ..
+git status
+git status
+git add .
+git commit -m '20230717'
+git push origin
+git status
+git status
+git submodule update
+git pull --recurse-submodules
+git status
+git add .
+git commit -m '20230717'
+git push origin main
+git push origin
+git status
+git submodule update
+git status
+git pull --resurse-submodules
+git pull --recurse-submodules 
+git status
+git status
+git add .
+git commit -m '20230717'
+git push origin mian
+git push origin main
+git push origin
+git remote -v
+git push origin
+git remote remove origin/main
+git remote -v
+git push origin main
+git push origin
+git push origin main
+git remote remove origin
+git remote add origin https://github.com/AkimJemi/laptop_github.git
+git push origin main
+git status
+git log
+pwd
+git status
+git status
+git add .
+git commit -m '20230717 JavaProject'
+git push origin main
+git ls-files | grep .java | wc -l
+git ls-files | grep .txt | wc -l
+git ls-files | grep git | wc -l
+git ls-files | grep e | wc -l
+git ls-files | grep e | nl
+sh test.txt 
+history > 2.txt
+history
+history 1
+history 50
+history -1
+history | head 10
+head -n 5
+head -n 5 test.txt
+head -n 5 test.txt
+cd linux/
+head -n 5 test.txt
+head -n 2 test.txt
+head -n 2 test.txt
+head -n 5 test.txt
+history | head -5
+history | head 5
+history | head -10
+history | head --10
+history | head -10
+head --help
+history
+echo test
+-c test
+history > C:/Users/wowp1/Desktop/laptop_github/laptop_repository/JavaProject/linux/test.txt
+sh test.txt 
+sh test.txt 
+echo history
+echo $history
+echo `history`
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+sh test.txt 
+chfn
+df -h
+mount
+e2fsck
+export -f
+export -p
+env
+set
+env | grep history
+env | grep HISTORY
+env | nl
+cd /bin
+ll
+find printf
+cat printf
+pwd
+find history
+type -a echo
+type -a history
+echo $history
+echo history
+echo $history
+history
+sh test.txt 
+type -a type
+type --help
+echo $HISTORY
+echo $HISFILE
+echo $HISTFILE
+echo $HISTFILE
+sh test.txt 
+cd /C:
+cd ..
+ll
+cd .
+cd /
+cd ..
+find c
+find -d c
+cd /c/Users/
+cd ..
+cd ..
+ll
+cd -a
+ls -a
+ls c
+ls -r
+ls -rl
+cd usr
+ll
+cd bin
+ll
+cd ..
+ll
+cd ..
+ll
+cd /
+cd c/Users/
+ll
+cd wowp1/
+ll
+cd Desktop/
+ll
+ll
+cd JavaProject
+ll
+ll
+cd linux/
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+sh test.txt `nl $HISTFILE`
+sh test.txt '`cat $HISTFILE` | nl '
+sh test.txt 'cat $HISTFILE | nl '
+sh test.txt cat $HISTFILE | nl 
+sh test.txt `cat $HISTFILE`
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+pwd
+sh test.txt 
+sh test.txt 
+echo $HISTFILE
+sh test.txt 
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+cat $HISTFILE
+sh test.txt $HISTFILE
+sh test.txt $HISTFILE
+cat $HISTFILE 5
+cat $HISTFILE | head 5
+cat $HISTFILE | head -5
+history 5
+cat $HISTFILE | tail -5
+cat $HISTFILE | tail -5 | nl
+cat $HISTFILE | tail -5
+cat $HISTFILE | head -5
+cat $HISTFILE | head -5 | nl
+cat $HISTFILE | nl | head -5
+cat $HISTFILE | nl | tail -5
+history 5
+cat $HISTFILE
+cat $HISTFILE | nl
+cat $HISTFILE | nl > history1.txt
+history > history2.txt
+history
+cat -a $HISTFILE | nl
+cat --help
+cat -A $HISTFILE | nl
+cat -A $HISTFILE | nl
+cat -A $HISTFILE | nl
+cat -A $HISTFILE2 | nl
+cat -A $HISTFILE | tail -5
+cat -A $HISTFILE
+more $HISTFILE 
+less $HISTFILE 
+dskdk
+dsdas
+dadad
+dadwd dwd a d
+vi $HISTFILE
+cat $HISTFILE
+cat $HISTFILE | nl
+fe
+fe
+cat $HISTFILE | nl
+cat $HISTFILE | nl
+history --help
+history -w
+history -w test001

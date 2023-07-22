@@ -1,0 +1,93 @@
+     1	git pull main
+     2	git pul
+     3	git pull
+     4	git status
+     5	gt add .
+     6	git add .
+     7	git commit -m "20230717"
+     8	git push origin main
+     9	git status
+    10	git add .
+    11	git commit -m '20230717
+    12	'
+    13	git push origin
+    14	cd ..
+    15	git status
+    16	git status
+    17	git add .
+    18	git commit -m '20230717'
+    19	git push origin
+    20	git status
+    21	git status
+    22	git submodule update
+    23	git pull --recurse-submodules
+    24	git status
+    25	git add .
+    26	git commit -m '20230717'
+    27	git push origin main
+    28	git push origin
+    29	git status
+    30	git submodule update
+    31	git status
+    32	git pull --resurse-submodules
+    33	git pull --recurse-submodules 
+    34	git status
+    35	git status
+    36	git add .
+    37	git commit -m '20230717'
+    38	git push origin mian
+    39	git push origin main
+    40	git push origin
+    41	git remote -v
+    42	git push origin
+    43	git remote remove origin/main
+    44	git remote -v
+    45	git push origin main
+    46	git push origin
+    47	git push origin main
+    48	git remote remove origin
+    49	git remote add origin https://github.com/AkimJemi/laptop_github.git
+    50	git push origin main
+    51	git status
+    52	git log
+    53	pwd
+    54	git status
+    55	git status
+    56	git add .
+    57	git commit -m '20230717 JavaProject'
+    58	git push origin main
+    59	git ls-files | grep .java | wc -l
+    60	git ls-files | grep .txt | wc -l
+    61	git ls-files | grep git | wc -l
+    62	git ls-files | grep e | wc -l
+    63	git ls-files | grep e | nl
+    64	sh test.txt 
+    65	history > 2.txt
+    66	history
+    67	history 1
+    68	history 50
+    69	history -1
+    70	history | head 10
+    71	head -n 5
+    72	head -n 5 test.txt
+    73	head -n 5 test.txt
+    74	cd linux/
+    75	head -n 5 test.txt
+    76	head -n 2 test.txt
+    77	head -n 2 test.txt
+    78	head -n 5 test.txt
+    79	history | head -5
+    80	history | head 5
+    81	history | head -10
+    82	history | head --10
+    83	history | head -10
+    84	head --help
+    85	history
+    86	echo test
+    87	-c test
+    88	history > C:/Users/wowp1/Desktop/laptop_github/laptop_repository/JavaProject/linux/test.txt
+    89	sh test.txt 
+    90	sh test.txt 
+    91	echo history
+    92	echo $history
+    93	echo `history`

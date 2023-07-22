@@ -13,7 +13,7 @@ public class JFrameAndLinux extends JFrame {
 	public static final String path_bash = "C:/Program Files/Git/git-bash.exe";
 
 	// Create a file Output.txt where git-bash prints the results
-	public static final String path_file_output_git_bash = "C:/Users/wowp1/Desktop/laptop_github/laptop_repository/JavaProject/linux/test.txt";
+	public static final String path_file_output_git_bash = "C:/Users/wowp1/Desktop/laptop_github/laptop_repository/JavaProject/linux/save.txt";
 	public static final Integer ARGS_MAX_LENGTH = 2;
 
 	public static void main(String[] args) {
@@ -25,7 +25,8 @@ public class JFrameAndLinux extends JFrame {
 			switch (i) {
 			case 0:
 				git_command = args[i];
-				command = git_command;
+				command = reset(git_command);
+				;
 				break;
 			case 1:
 				path_repository = args[i];
@@ -36,10 +37,40 @@ public class JFrameAndLinux extends JFrame {
 				return;
 			}
 			command = command + " > " + path_file_output_git_bash;
+			System.out.println(command);
 			String output = runCommand(path_bash, "-c", command);
-			System.out.println(output);
 
 		}
+	}
+
+	private static String reset(String git_command) {
+		if (git_command.contains(LinuxCommandList.HISTORY)) {
+			String str = "";
+			int i = 0;
+			if (LinuxCommandList.HISTORY.length() < git_command.length()) {
+				while (true) {
+					int num = git_command.indexOf(LinuxCommandList.HISTORY) + LinuxCommandList.HISTORY.length() + i + 1;
+					System.out.println("true");
+					char ch = git_command.charAt(num);
+					if (Character.isDigit(ch)) {
+						str = str + String.valueOf(ch);
+						i++;
+					} else {
+						if (i == 0) {
+							git_command = git_command.replace(LinuxCommandList.HISTORY,
+									LinuxCommandList.HISTORY_REPLACE);
+						}
+						git_command = git_command.replace(LinuxCommandList.HISTORY, LinuxCommandList.HISTORY_REPLACE_WITH_NUM).replace(ch, ch);
+						break;
+					}
+				}
+			} else {
+				git_command = git_command.replace(LinuxCommandList.HISTORY, LinuxCommandList.HISTORY_REPLACE);
+			}
+			System.out.println(git_command);
+		}
+		return git_command;
+
 	}
 
 	public static String runCommand(String... command) {
