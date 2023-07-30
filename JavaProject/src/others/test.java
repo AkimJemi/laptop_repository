@@ -2,12 +2,13 @@ package others;
 
 public class test {
 	public static void main(String[] args) {
-//		printTable(5);
-		new Test2().printTable(5);
+		String test = "";
+//		ArrayList<String> test = new LinuxCommand().getEnumValueList();
+//		String test = new LinuxCommand().getEnumValueList().toString();
+		
+		System.out.println("str : "  + test);
 
 	}
-
-	
 
 // end of the method
 }
