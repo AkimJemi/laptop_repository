@@ -1,0 +1,3 @@
+[submodule "suumo"]
+	path = suumo
+	url = https://github.com/AkimJemi/suumo.git
