@@ -1,1 +1,0 @@
-`1` Onclick function triggered by pressing specific key on keyboard

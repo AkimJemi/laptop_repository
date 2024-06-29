@@ -1,9 +1,0 @@
-history pattern
-1 [
-　history
-　history 
-　history 5
-　history 10
-　history 100
-]
-cat dhe | history [1]
