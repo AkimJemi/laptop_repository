@@ -12,7 +12,8 @@ git submodule update --init
 glogs
 gco -b branchname
 gp origin branchname
-git rm -r --cached DreamHotel
+git rm -r --cached repoName
+git submodule add repoName
 
 
 
@@ -20,3 +21,6 @@ git rm -r --cached DreamHotel
 git submodule add https://github.com/AkimJemi/DreamHotel
 置換後：\1.git \1
 git submodule add https://github.com/AkimJemi/DreamHotel.git DreamHotel
+
+# laptop_repository
+ 
