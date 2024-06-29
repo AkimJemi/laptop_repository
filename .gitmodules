@@ -1,9 +1,6 @@
 [submodule "algorithm_Java"]
 	path = algorithm_Java
 	url = https://github.com/AkimJemi/algorithm_Java.git
-[submodule "algorithm_Python"]
-	path = algorithm_Python
-	url = https://github.com/AkimJemi/algorithm_Python.git
 [submodule "AllInOne_Akim"]
 	path = AllInOne_Akim
 	url = https://github.com/AkimJemi/AllInOne_Akim.git
@@ -22,3 +19,6 @@
 [submodule "pj_HotelReservation"]
 	path = pj_HotelReservation
 	url = https://github.com/AkimJemi/pj_HotelReservation.git
+[submodule "algorithm_Python"]
+	path = algorithm_Python
+	url = https://github.com/AkimJemi/algorithm_Python.git
