@@ -22,3 +22,12 @@
 [submodule "algorithm_Python"]
 	path = algorithm_Python
 	url = https://github.com/AkimJemi/algorithm_Python.git
+[submodule "React"]
+    path = React
+    url = https://github.com/AkimJemi/React.git
+[submodule "DB"]
+	path = DB
+	url = https://github.com/AkimJemi/DB.git
+[submodule "JPA"]
+	path = JPA
+	url = https://github.com/AkimJemi/JPA.git
