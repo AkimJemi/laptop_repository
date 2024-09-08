@@ -31,3 +31,6 @@
 [submodule "JPA"]
 	path = JPA
 	url = https://github.com/AkimJemi/JPA.git
+[submodule "IT"]
+	path = IT
+	url = https://github.com/AkimJemi/IT.git

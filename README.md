@@ -27,7 +27,7 @@
 
 置換前：([^/]+).git$
 
-git submodule add https://github.com/AkimJemi/DreamHotel
+git submodule add https://github.com/AkimJemi/DreamHotel.git
 
 置換後：\1.git \1
 
