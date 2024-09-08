@@ -1,6 +1,6 @@
 ## laptop_repository
  
-`git submodule update`
+`git submodule update --remote`
 
 `git submodule deinit -f 追加したサブモジュール`
 
